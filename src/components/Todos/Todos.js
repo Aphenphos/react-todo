@@ -3,14 +3,15 @@ import { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import { useTodos } from '../../hooks/useTodos';
-import { createTodo } from '../../services/todo';
+import { completeTodo, createTodo } from '../../services/todo';
 
 export default function Todos() {
   const { user } = useContext(UserContext);
   const [description, setDescription] = useState('');
   const { todos, setTodos } = useTodos();
   const handleClick = async (todo) => {
-    console.log(todo);
+    const updated = await completeTodo(todo);
+    setTodos(updated);
   };
   const handleNewTodo = async () => {
     try {
@@ -39,7 +40,7 @@ export default function Todos() {
           <h2>{todo.description}</h2>
           <input type='checkbox'
             checked={todo.complete}
-            onClick={() => handleClick(todo)} />
+            onChange={() => handleClick(todo)} />
         </div>
       ))}
     </div></>

@@ -1,3 +1,4 @@
+
 import { checkError, client } from './client';
 
 async function getTodos() {
@@ -12,4 +13,13 @@ async function createTodo(description) {
 
   return checkError(resp);
 }
-export { getTodos, createTodo };
+
+async function completeTodo({ id, complete }) {
+  await client.from('todos')
+    .update({ complete: !complete })
+    .match({ id })
+    .single();
+
+  return await getTodos();
+}
+export { getTodos, createTodo, completeTodo };
