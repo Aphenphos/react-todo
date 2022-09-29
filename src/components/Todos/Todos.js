@@ -20,6 +20,7 @@ export default function Todos() {
       setTodos((cur) => [...cur, { description }]);
       setDescription('');
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error(e.message);
     }
   };

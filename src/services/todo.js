@@ -3,7 +3,6 @@ import { checkError, client } from './client';
 
 async function getTodos() {
   const resp = await client.from('todos').select();
-  console.log(resp);
 
   return checkError(resp);
 }
