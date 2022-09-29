@@ -29,7 +29,7 @@ export default function Auth() {
           <input type='text' name='email' value={email} onChange={e => setEmail(e.target.value)}></input>
         </label>
         <label>
-          <input type='text' name='password' value={password} onChange={e => setPassword(e.target.value)}></input>
+          <input type='password' name='password' value={password} onChange={e => setPassword(e.target.value)}></input>
         </label>
         <input type='submit' value='submit'></input>
       </form>

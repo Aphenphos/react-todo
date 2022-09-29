@@ -15,8 +15,8 @@ async function authUser(email, password, type) {
   return response.user;
 } 
 
-async function signOut() {
+async function supaSignOut() {
   await client.auth.signOut();
 }
 
-export { getUser, authUser, signOut }; 
+export { getUser, authUser, supaSignOut }; 
