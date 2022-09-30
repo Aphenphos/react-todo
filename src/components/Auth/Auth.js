@@ -28,7 +28,7 @@ export default function Auth() {
         <label> Email
           <input type='text' name='email' value={email} onChange={e => setEmail(e.target.value)}></input>
         </label>
-        <label>
+        <label> Password
           <input type='password' name='password' value={password} onChange={e => setPassword(e.target.value)}></input>
         </label>
         <input type='submit' value='submit'></input>
